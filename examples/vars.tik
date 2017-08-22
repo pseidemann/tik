@@ -1,0 +1,4 @@
+vara = 1 + 2
+varb = 2 * 4
+varc = vara + varb
+print(vara, varb, varc)

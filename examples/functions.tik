@@ -1,0 +1,10 @@
+outer = 666
+
+func greet(somestr, someint) {
+	inner = 333
+	print("str:", somestr, "int:", someint, inner, outer)
+}
+
+greet("pseidemann", 1+2*3)
+bar = 21*2
+greet("foo", bar)
