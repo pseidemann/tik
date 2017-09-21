@@ -3,23 +3,38 @@ package lexer
 import "fmt"
 
 // TokenType declares the token type.
-type TokenType string
+type TokenType int
 
 // All available token types.
 const (
-	TypeAssign  TokenType = "assignment"
-	TypeIdent   TokenType = "identifier"
-	TypeKeyword TokenType = "keyword"
-	TypeComma   TokenType = "comma"
-	TypeNewline TokenType = "newline"
-	TypeNum     TokenType = "number"
-	TypeOp      TokenType = "operator"
-	TypeParenL  TokenType = "paren-left"  // (
-	TypeParenR  TokenType = "paren-right" // )
-	TypeBraceL  TokenType = "brace-left"  // {
-	TypeBraceR  TokenType = "brace-right" // }
-	TypeString  TokenType = "string"
+	TypeAssign TokenType = iota
+	TypeIdent
+	TypeKeyword
+	TypeComma
+	TypeNewline
+	TypeNum
+	TypeOp
+	TypeParenL // (
+	TypeParenR // )
+	TypeBraceL // {
+	TypeBraceR // }
+	TypeString
 )
+
+var types = [...]string{
+	"assignment",
+	"identifier",
+	"keyword",
+	"comma",
+	"newline",
+	"number",
+	"operator",
+	"paren-left",
+	"paren-right",
+	"brace-left",
+	"brace-right",
+	"string",
+}
 
 // Token is a categorized lexeme.
 type Token struct {
@@ -29,5 +44,5 @@ type Token struct {
 }
 
 func (t *Token) String() string {
-	return fmt.Sprintf("(%s<%d> %#v)", t.TokenType, t.Precedence, t.Value)
+	return fmt.Sprintf("(%s<%d> %#v)", types[t.TokenType], t.Precedence, t.Value)
 }

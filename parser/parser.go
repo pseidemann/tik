@@ -273,7 +273,6 @@ func queueOp(queue []ast.Node, op *lexer.Token) []ast.Node {
 
 	return append(queue, &ast.Operation{
 		OpType: opMap[op.Value],
-		Name:   op.Value,
 		Left:   left,
 		Right:  right,
 	})

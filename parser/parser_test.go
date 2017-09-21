@@ -82,19 +82,15 @@ func TestMath(t *testing.T) {
 				Args: []ast.Node{
 					&ast.Operation{
 						OpType: ast.OpAdd,
-						Name:   "+",
 						Left:   &ast.Number{Num: "10"},
 						Right: &ast.Operation{
 							OpType: ast.OpMul,
-							Name:   "*",
 							Left:   &ast.Number{Num: "2"},
 							Right: &ast.Operation{
 								OpType: ast.OpSub,
-								Name:   "-",
 								Left:   &ast.Number{Num: "31"},
 								Right: &ast.Operation{
 									OpType: ast.OpDiv,
-									Name:   "/",
 									Left:   &ast.Number{Num: "2"},
 									Right:  &ast.Number{Num: "2"},
 								},
@@ -142,11 +138,9 @@ func TestPrint(t *testing.T) {
 					&ast.String{Str: "world3"},
 					&ast.Operation{
 						OpType: ast.OpAdd,
-						Name:   "+",
 						Left:   &ast.Number{Num: "1"},
 						Right: &ast.Operation{
 							OpType: ast.OpMul,
-							Name:   "*",
 							Left:   &ast.Number{Num: "2"},
 							Right:  &ast.Number{Num: "3"},
 						},
@@ -177,7 +171,6 @@ func TestVariables(t *testing.T) {
 				Left: &ast.Ident{Name: "vara"},
 				Right: &ast.Operation{
 					OpType: ast.OpAdd,
-					Name:   "+",
 					Left:   &ast.Number{Num: "1"},
 					Right:  &ast.Number{Num: "2"},
 				},
@@ -186,7 +179,6 @@ func TestVariables(t *testing.T) {
 				Left: &ast.Ident{Name: "varb"},
 				Right: &ast.Operation{
 					OpType: ast.OpMul,
-					Name:   "*",
 					Left:   &ast.Number{Num: "2"},
 					Right:  &ast.Number{Num: "4"},
 				},
@@ -195,7 +187,6 @@ func TestVariables(t *testing.T) {
 				Left: &ast.Ident{Name: "varc"},
 				Right: &ast.Operation{
 					OpType: ast.OpAdd,
-					Name:   "+",
 					Left:   &ast.Ident{Name: "vara"},
 					Right:  &ast.Ident{Name: "varb"},
 				},
