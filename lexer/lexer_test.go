@@ -7,7 +7,7 @@ import (
 )
 
 func TestFunctions(t *testing.T) {
-	f, err := os.Open("../../testdata/functions.tik")
+	f, err := os.Open("../testdata/functions.tik")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -74,7 +74,7 @@ func TestFunctions(t *testing.T) {
 }
 
 func TestMath(t *testing.T) {
-	f, err := os.Open("../../testdata/math.tik")
+	f, err := os.Open("../testdata/math.tik")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -117,7 +117,7 @@ func TestMath(t *testing.T) {
 }
 
 func TestPrint(t *testing.T) {
-	f, err := os.Open("../../testdata/print.tik")
+	f, err := os.Open("../testdata/print.tik")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -168,7 +168,7 @@ func TestPrint(t *testing.T) {
 }
 
 func TestVariables(t *testing.T) {
-	f, err := os.Open("../../testdata/variables.tik")
+	f, err := os.Open("../testdata/variables.tik")
 	if err != nil {
 		t.Fatal(err)
 	}

@@ -4,8 +4,8 @@ package parser
 import (
 	"fmt"
 
-	"github.com/pseidemann/tik/parser/ast"
-	"github.com/pseidemann/tik/parser/lexer"
+	"github.com/pseidemann/tik/ast"
+	"github.com/pseidemann/tik/lexer"
 )
 
 var opMap = map[string]ast.OpType{

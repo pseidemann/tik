@@ -5,8 +5,8 @@ import (
 	"os"
 	"testing"
 
+	"github.com/pseidemann/tik/lexer"
 	"github.com/pseidemann/tik/parser"
-	"github.com/pseidemann/tik/parser/lexer"
 )
 
 func TestFunctions(t *testing.T) {

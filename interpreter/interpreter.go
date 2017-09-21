@@ -7,7 +7,7 @@ import (
 	"io"
 	"strconv"
 
-	"github.com/pseidemann/tik/parser/ast"
+	"github.com/pseidemann/tik/ast"
 )
 
 const maxStackSize = 1000

@@ -7,8 +7,8 @@ import (
 
 	"github.com/pseidemann/tik/inspect"
 	"github.com/pseidemann/tik/interpreter"
+	"github.com/pseidemann/tik/lexer"
 	"github.com/pseidemann/tik/parser"
-	"github.com/pseidemann/tik/parser/lexer"
 )
 
 func main() {

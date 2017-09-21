@@ -1,11 +1,11 @@
-// Package inspect implements printing of AST nodes.
+// Package inspect implements printing of an AST.
 package inspect
 
 import (
 	"fmt"
 	"strings"
 
-	"github.com/pseidemann/tik/parser/ast"
+	"github.com/pseidemann/tik/ast"
 )
 
 // PrintAST prints AST nodes.

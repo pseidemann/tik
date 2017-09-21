@@ -3,7 +3,7 @@ package parser
 import (
 	"testing"
 
-	"github.com/pseidemann/tik/parser/lexer"
+	"github.com/pseidemann/tik/lexer"
 )
 
 func TestLIFO(t *testing.T) {

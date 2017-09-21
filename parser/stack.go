@@ -1,6 +1,6 @@
 package parser
 
-import "github.com/pseidemann/tik/parser/lexer"
+import "github.com/pseidemann/tik/lexer"
 
 type tokenStack struct {
 	s []*lexer.Token
