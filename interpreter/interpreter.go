@@ -4,7 +4,7 @@ package interpreter
 import (
 	"bufio"
 	"fmt"
-	"os"
+	"io"
 	"strconv"
 
 	"github.com/pseidemann/tik/parser/ast"
@@ -14,7 +14,8 @@ const maxStackSize = 1000
 
 // Interpreter can execute an AST.
 type Interpreter struct {
-	stack contextStack
+	stdout io.Writer
+	stack  contextStack
 }
 
 type context struct {
@@ -54,8 +55,10 @@ func copyContext(prev *context) *context {
 }
 
 // New creates an Interpreter.
-func New() *Interpreter {
-	in := &Interpreter{}
+func New(stdout io.Writer) *Interpreter {
+	in := &Interpreter{
+		stdout: stdout,
+	}
 	in.stack.push(newContext())
 	return in
 }
@@ -122,7 +125,7 @@ func (in *Interpreter) execAst(n ast.Node) {
 func (in *Interpreter) execFuncCall(funcCall *ast.FuncCall) {
 	switch funcCall.Name {
 	case "print":
-		buf := bufio.NewWriter(os.Stdout)
+		buf := bufio.NewWriter(in.stdout)
 		lastIdx := len(funcCall.Args) - 1
 		for i, child := range funcCall.Args {
 			var str string

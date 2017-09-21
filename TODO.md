@@ -1,9 +1,6 @@
 # TODO
 
-* write tests for interpreter
-  * convert examples to go tests
 * write tests for lexer
-* write tests for parser
 * function return value
 * control flow
   * for loop

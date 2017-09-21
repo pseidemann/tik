@@ -12,10 +12,10 @@ import (
 )
 
 func main() {
-	testFile("examples/functions.tik")
-	testFile("examples/hello.tik")
-	testFile("examples/math.tik")
-	testFile("examples/vars.tik")
+	testFile("testdata/functions.tik")
+	testFile("testdata/math.tik")
+	testFile("testdata/print.tik")
+	testFile("testdata/variables.tik")
 }
 
 func testFile(filename string) {
@@ -27,14 +27,14 @@ func testFile(filename string) {
 
 	lex := lexer.New(f)
 	par := parser.New(lex)
-	ast := par.CreateAST()
+	a := par.CreateAST()
 
 	fmt.Println("--- print ast")
-	inspect.PrintAST(ast)
+	inspect.PrintAST(a)
 
 	fmt.Println("--- execute ast")
-	in := interpreter.New()
-	in.Execute(ast)
+	in := interpreter.New(os.Stdout)
+	in.Execute(a)
 
 	fmt.Println("--- done")
 }
