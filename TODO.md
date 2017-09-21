@@ -1,6 +1,5 @@
 # TODO
 
-* write tests for lexer
 * function return value
 * control flow
   * for loop
