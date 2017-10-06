@@ -24,9 +24,17 @@ var opPrecedence = map[rune]int{
 	'/': 2,
 }
 
+// All available keywords.
+const (
+	KWFunc   = "func"
+	KWPrint  = "print"
+	KWReturn = "return"
+)
+
 var keywords = map[string]bool{
-	"func":  true,
-	"print": true,
+	KWFunc:   true,
+	KWPrint:  true,
+	KWReturn: true,
 }
 
 func isKeyword(ident string) bool {

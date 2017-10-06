@@ -9,8 +9,8 @@ import (
 	"github.com/pseidemann/tik/lexer"
 )
 
-func TestFunctions(t *testing.T) {
-	f, err := os.Open("../testdata/functions.tik")
+func TestFuncSimple(t *testing.T) {
+	f, err := os.Open("../testdata/func_simple.tik")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -21,30 +21,15 @@ func TestFunctions(t *testing.T) {
 	expected := &ast.Block{
 		Name: "main",
 		Stmts: []ast.Node{
-			&ast.Assign{
-				Left:  &ast.Ident{Name: "outer"},
-				Right: &ast.Number{Num: "1"},
-			},
 			&ast.FuncDef{
 				Name: "greet",
-				Params: []*ast.Param{
-					&ast.Param{Name: "a"},
-					&ast.Param{Name: "b"},
-				},
 				Body: &ast.Block{
 					Name: "func",
 					Stmts: []ast.Node{
-						&ast.Assign{
-							Left:  &ast.Ident{Name: "inner"},
-							Right: &ast.Number{Num: "4"},
-						},
 						&ast.FuncCall{
 							Name: "print",
 							Args: []ast.Node{
-								&ast.Ident{Name: "outer"},
-								&ast.Ident{Name: "a"},
-								&ast.Ident{Name: "b"},
-								&ast.Ident{Name: "inner"},
+								&ast.String{Str: "Hello, world!"},
 							},
 						},
 					},
@@ -52,10 +37,6 @@ func TestFunctions(t *testing.T) {
 			},
 			&ast.FuncCall{
 				Name: "greet",
-				Args: []ast.Node{
-					&ast.Number{Num: "2"},
-					&ast.Number{Num: "3"},
-				},
 			},
 		},
 	}

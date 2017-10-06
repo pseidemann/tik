@@ -1,0 +1,9 @@
+outer = 1
+shadowed = 2
+
+func foo(x) {
+	shadowed = 3
+	print(outer, x, shadowed)
+}
+
+foo(shadowed)

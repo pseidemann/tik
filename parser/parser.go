@@ -81,10 +81,18 @@ func (p *Parser) parseStmt() ast.Node {
 	switch t.TokenType {
 	case lexer.TypeKeyword:
 		switch t.Value {
-		case "func":
+		case lexer.KWFunc:
 			return p.parseFuncDef()
-		case "print":
+		case lexer.KWPrint:
 			return p.parseFuncCall(t.Value)
+		case lexer.KWReturn:
+			expr, ok := p.parseExpr()
+			if !ok {
+				return &ast.Return{}
+			}
+			return &ast.Return{
+				Value: expr,
+			}
 		default:
 			panic("unknown keyword " + t.Value)
 		}
@@ -210,9 +218,21 @@ Loop:
 				Str: t.Value,
 			})
 		case lexer.TypeIdent:
-			outQueue = append(outQueue, &ast.Ident{
-				Name: t.Value,
-			})
+			next, err := p.nextToken()
+			if err != nil {
+				if err != lexer.ErrEOF {
+					fmt.Println("ERROR:", err)
+				}
+			}
+			p.unreadToken(next)
+			switch next.TokenType {
+			case lexer.TypeParenL:
+				outQueue = append(outQueue, p.parseFuncCall(t.Value))
+			default:
+				outQueue = append(outQueue, &ast.Ident{
+					Name: t.Value,
+				})
+			}
 		case lexer.TypeOp:
 			for opStack.peek() != nil &&
 				opStack.peek().TokenType == lexer.TypeOp &&

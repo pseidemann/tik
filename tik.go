@@ -12,7 +12,10 @@ import (
 )
 
 func main() {
-	testFile("testdata/functions.tik")
+	testFile("testdata/func_args.tik")
+	testFile("testdata/func_return.tik")
+	testFile("testdata/func_scope.tik")
+	testFile("testdata/func_simple.tik")
 	testFile("testdata/math.tik")
 	testFile("testdata/print.tik")
 	testFile("testdata/variables.tik")

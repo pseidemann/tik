@@ -32,9 +32,9 @@ func TestLIFO(t *testing.T) {
 	}
 
 	if s.peek() != nil {
-		t.Error("expected emtpy stack")
+		t.Error("expected empty stack")
 	}
 	if s.pop() != nil {
-		t.Error("expected emtpy stack")
+		t.Error("expected empty stack")
 	}
 }

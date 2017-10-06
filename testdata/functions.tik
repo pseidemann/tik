@@ -1,8 +1,0 @@
-outer = 1
-
-func greet(a, b) {
-	inner = 4
-	print(outer, a, b, inner)
-}
-
-greet(2, 3)

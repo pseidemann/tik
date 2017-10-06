@@ -1,0 +1,5 @@
+func reverseprint(a, b) {
+	print(b, a)
+}
+
+reverseprint(2, 1)
